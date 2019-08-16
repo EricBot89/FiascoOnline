@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev" : "npx webpack -w & npx nodemon server"
+    "start-dev": "npx webpack -w & npx nodemon server"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,10 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.4"
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4",
+    "socketio": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

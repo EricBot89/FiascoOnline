@@ -123,3 +123,32 @@ q:after {
   content: "";
   content: none;
 }
+
+h1{
+  font-size: 30px;
+  padding-top: 20px;
+}
+
+a{
+  color: black;
+  padding: 10px;
+}
+
+nav{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links{
+  padding: 5px;
+}
+
+.header {
+  display: flex;
+  flex-flow: column;
+  background: #92211d;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
