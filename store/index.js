@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux'
-import { create } from 'domain';
+import {user} from './reducers/user'
 
 const initState = {
     state: null,
@@ -11,6 +11,7 @@ const rootReducer = (state = initState, action) => {
 
 const reducer = combineReducers({
     rootReducer,
+    user
 })
 
 const store = createStore(reducer)

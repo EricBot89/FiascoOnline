@@ -9,6 +9,8 @@ const server = express()
 server.use(express.static(path.join(__dirname, "../public")))
 server.use(volleyball)
 
+server.use('/api', require('./api'))
+
 server.get('*', (req,res,next) => {
     res.status(200).sendFile(path.join(__dirname, "../public/index.html"));
 })
