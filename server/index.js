@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const volleyball = require('volleyball')
+const socketio = require('socket.io')
 
 const PORT = 1337
 
@@ -20,6 +21,11 @@ server.use( (error, req, res, next) =>{
     res.status(error.status || 500).send(err.message || "There was a problem")
 })
 
-server.listen(PORT, () => {
+
+
+const serverInstance = server.listen(PORT, () => {
     console.log(`Now listning on ${PORT}`)
 })
+
+const io = socketio(serverInstance)
+require('./socket')(io)

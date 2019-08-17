@@ -6,4 +6,4 @@ const Rooms = (props) => (
   </div>
 )
 
-export Rooms
+export {Rooms}

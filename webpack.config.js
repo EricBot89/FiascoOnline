@@ -1,6 +1,6 @@
 module.exports = {
     "mode": "development",
-    "entry": __dirname + "/comps/index.js",
+    "entry": __dirname + "/client/index.js",
     "output": {
         "path": __dirname+'/public',
         "filename": "bundle.js"

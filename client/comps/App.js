@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Home, Rooms } from "./";
+import { Home, Rooms } from "..";
 import { connect } from "react-redux";
 
 const App = props => (
@@ -27,7 +27,7 @@ const App = props => (
 );
 
 const mapState = state => ({
-  user: state.user
+  user: state.user.userName
 });
 
 export default connect(
