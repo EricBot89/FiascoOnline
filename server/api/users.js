@@ -10,3 +10,5 @@ router.put('./:id', (req,res,next) => {
    const {data} = req.body
    res.status(200).send('this will change user data -- update status code')
 })
+
+module.exports = router

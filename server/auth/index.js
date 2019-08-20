@@ -9,3 +9,5 @@ router.put('./', (req,res,next) => {
 })
 
 // consider Oauth
+
+module.exports = router

@@ -3,6 +3,7 @@ const path = require('path')
 const volleyball = require('volleyball')
 const socketio = require('socket.io')
 
+const db = require('./db')
 const PORT = 1337
 
 const server = express()
@@ -22,9 +23,12 @@ server.use( (error, req, res, next) =>{
     res.status(error.status || 500).send(err.message || "There was a problem")
 })
 
-
+const dbInit =  async() => {
+   await db.sync()
+} 
 
 const serverInstance = server.listen(PORT, () => {
+    dbInit()
     console.log(`Now listning on ${PORT}`)
 })
 
