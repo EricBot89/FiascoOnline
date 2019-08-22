@@ -23,8 +23,8 @@ server.use( (error, req, res, next) =>{
     res.status(error.status || 500).send(err.message || "There was a problem")
 })
 
-const dbInit =  async() => {
-   await db.sync()
+const dbInit =  () => {
+  db.sync()
 } 
 
 const serverInstance = server.listen(PORT, () => {

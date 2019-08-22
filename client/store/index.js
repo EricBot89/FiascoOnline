@@ -1,5 +1,6 @@
 import {createStore, combineReducers} from 'redux'
 import {user} from './reducers/user'
+import { socket } from './socket'
 
 const initState = {
     state: null,
@@ -15,5 +16,7 @@ const reducer = combineReducers({
 })
 
 const store = createStore(reducer)
+
+socket.connect()
 
 export {store}
