@@ -178,7 +178,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar initState = {\n    state: null\n};\n\nvar rootReducer = function rootReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n    return state;\n};\n\nvar reducer = (0, _redux.combineReducers)({\n    rootReducer: rootReducer,\n    user: _user.user\n});\n\nvar store = (0, _redux.createStore)(reducer);\n\nexports.store = store;\n\n//# sourceURL=webpack:///./client/store/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar initState = {\n    state: null\n};\n\nvar rootReducer = function rootReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n    return state;\n};\n\nvar reducer = (0, _redux.combineReducers)({\n    rootReducer: rootReducer,\n    user: _user.user\n});\n\nvar store = (0, _redux.createStore)(reducer);\n\n_socket.socket.connect();\n\nexports.store = store;\n\n//# sourceURL=webpack:///./client/store/index.js?");
 
 /***/ }),
 
@@ -191,6 +191,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar initState = {\n    userName: null\n};\n\nvar LOGIN = 'LOGIN';\nvar LOGOUT = 'LOGOUT';\nvar ERROR = 'ERROR';\n\nvar user = function user() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n\n    switch (action.type) {\n        case LOGIN:\n            return action.user;\n        case LOGOUT:\n            return initState;\n        case ERROR:\n            return action.error;\n        default:\n            return state;\n    }\n\n    return state;\n};\n\nexports.user = user;\n\n//# sourceURL=webpack:///./client/store/reducers/user.js?");
+
+/***/ }),
+
+/***/ "./client/store/socket/index.js":
+/*!**************************************!*\
+  !*** ./client/store/socket/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.socket = undefined;\n\nvar _socket = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/lib/index.js\");\n\nvar _socket2 = _interopRequireDefault(_socket);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar socket = (0, _socket2.default)('http://localhost:1337');\n\nexports.socket = socket;\n\n//# sourceURL=webpack:///./client/store/socket/index.js?");
 
 /***/ }),
 

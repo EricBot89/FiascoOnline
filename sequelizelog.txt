@@ -1,1 +1,0 @@
-Executing (default): SELECT 1+1 AS resultExecuting (default): SELECT 1+1 AS resultExecuting (default): SELECT 1+1 AS resultExecuting (default): SELECT 1+1 AS resultExecuting (default): SELECT 1+1 AS resultExecuting (default): SELECT 1+1 AS result
