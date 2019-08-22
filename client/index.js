@@ -4,8 +4,6 @@ import { Provider } from "react-redux";
 import { App, Home } from "./comps";
 import { store } from "./store";
 
-import './socket'
-
 render(
   <Provider store={store}>
     <App />
