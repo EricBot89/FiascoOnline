@@ -166,7 +166,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar initState = {\n    state: null\n};\n\nvar rootReducer = function rootReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n    return state;\n};\n\nvar reducer = (0, _redux.combineReducers)({\n    rootReducer: rootReducer,\n    user: _user.user\n});\n\nvar store = (0, _redux.createStore)(reducer);\n\n_socket.socket.connect();\n\nexports.store = store;\n\n//# sourceURL=webpack:///./client/store/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar _middleware = __webpack_require__(/*! ./middleware */ \"./client/store/middleware.js\");\n\nvar _reduxDevtoolsExtension = __webpack_require__(/*! redux-devtools-extension */ \"./node_modules/redux-devtools-extension/index.js\");\n\nvar initState = {\n    state: null\n};\n\nvar rootReducer = function rootReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n    return state;\n};\n\nvar reducer = (0, _redux.combineReducers)({\n    rootReducer: rootReducer,\n    user: _user.user\n});\n\nvar store = (0, _redux.createStore)(reducer, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_middleware.middleware)));\n\n_socket.socket.connect();\n\nexports.store = store;\n\n//# sourceURL=webpack:///./client/store/index.js?");
+
+/***/ }),
+
+/***/ "./client/store/middleware.js":
+/*!************************************!*\
+  !*** ./client/store/middleware.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.middleware = undefined;\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar middleware = function middleware(_ref) {\n  var dispatch = _ref.dispatch,\n      getState = _ref.getState;\n\n  return function (next) {\n    return function (action) {\n\n      if (typeof action === 'function') {\n        console.log('thunk in progress');\n        return action(dispatch, getState);\n      }\n\n      _socket.socket.on('test', function (str) {\n        console.log('The server sent a test with string ' + str);\n      });\n\n      console.log(getState());\n      console.log(next(action));\n      console.log(getState());\n\n      return next(action);\n    };\n  };\n};\n\nexports.middleware = middleware;\n\n//# sourceURL=webpack:///./client/store/middleware.js?");
 
 /***/ }),
 
@@ -190,7 +202,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.socket = undefined;\n\nvar _socket = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/lib/index.js\");\n\nvar _socket2 = _interopRequireDefault(_socket);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar socket = (0, _socket2.default)(window.location.origin);\n\nsocket.on('connect', function () {\n    console.log('server socket connection established');\n});\n\nexports.socket = socket;\n\n//# sourceURL=webpack:///./client/store/socket/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.socket = undefined;\n\nvar _socket = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/lib/index.js\");\n\nvar _socket2 = _interopRequireDefault(_socket);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar socket = (0, _socket2.default)(window.location.origin);\n\nsocket.on('connect', function () {\n    console.log('server socket connection established');\n});\n\nsocket.on('test', function (str) {\n    console.log('The server sent a test with string ' + str);\n});\n\nexports.socket = socket;\n\n//# sourceURL=webpack:///./client/store/socket/index.js?");
 
 /***/ }),
 
@@ -1413,6 +1425,18 @@ eval("/** @license React v16.9.0\n * react.development.js\n *\n * Copyright (c) 
 
 "use strict";
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ \"./node_modules/react/cjs/react.development.js\");\n}\n\n\n//# sourceURL=webpack:///./node_modules/react/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/redux-devtools-extension/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/redux-devtools-extension/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar compose = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\").compose;\n\nexports.__esModule = true;\nexports.composeWithDevTools = (\n  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?\n    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :\n    function() {\n      if (arguments.length === 0) return undefined;\n      if (typeof arguments[0] === 'object') return compose;\n      return compose.apply(null, arguments);\n    }\n);\n\nexports.devToolsEnhancer = (\n  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ?\n    window.__REDUX_DEVTOOLS_EXTENSION__ :\n    function() { return function(noop) { return noop; } }\n);\n\n\n//# sourceURL=webpack:///./node_modules/redux-devtools-extension/index.js?");
 
 /***/ }),
 

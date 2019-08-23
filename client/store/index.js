@@ -1,6 +1,9 @@
-import {createStore, combineReducers} from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {user} from './reducers/user'
 import { socket } from './socket'
+import {middleware} from './middleware'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 const initState = {
     state: null,
@@ -15,7 +18,7 @@ const reducer = combineReducers({
     user
 })
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(middleware)))
 
 socket.connect()
 

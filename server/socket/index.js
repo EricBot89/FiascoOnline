@@ -6,5 +6,13 @@ module.exports = io => {
         socket.on('disconnect', () => {
             console.log(`bye ${socket.id}`)
         })
+
+        setTimeout( () => {
+            socket.emit('test','teststring')
+            console.log('socket test ')
+        }
+            , 3000)
+            
     })
+   
 }

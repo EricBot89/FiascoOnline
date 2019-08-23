@@ -6,6 +6,8 @@ socket.on('connect', () => {
     console.log('server socket connection established')
 })
 
-
+socket.on('test', (str) => {
+    console.log(`The server sent a test with string ${str}`)
+})
 
 export { socket }
