@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
-const db = require("../index").db;
+const db = require("../index");
 const crypto = require("crypto");
 
-module.exports = db.define("user", {
+const User = db.define("user", {
   userName: {
     type: Sequelize.STRING,
     allowNull: false
@@ -57,3 +57,5 @@ User.beforeBulkCreate(userList => {
     encryptCredentials(user);
   });
 });
+
+module.exports = User
