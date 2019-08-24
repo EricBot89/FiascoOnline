@@ -166,7 +166,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar _middleware = __webpack_require__(/*! ./middleware */ \"./client/store/middleware.js\");\n\nvar _reduxDevtoolsExtension = __webpack_require__(/*! redux-devtools-extension */ \"./node_modules/redux-devtools-extension/index.js\");\n\nvar initState = {\n    state: null\n};\n\nvar rootReducer = function rootReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n    return state;\n};\n\nvar reducer = (0, _redux.combineReducers)({\n    rootReducer: rootReducer,\n    user: _user.user\n});\n\nvar store = (0, _redux.createStore)(reducer, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_middleware.middleware)));\n\n_socket.socket.connect();\n\nexports.store = store;\n\n//# sourceURL=webpack:///./client/store/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.leaveRoom = exports.joinRoom = exports.logout = exports.loginThunk = exports.store = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _user = __webpack_require__(/*! ./reducers/user */ \"./client/store/reducers/user.js\");\n\nvar _game = __webpack_require__(/*! ./reducers/game */ \"./client/store/reducers/game.js\");\n\nvar _socket = __webpack_require__(/*! ./socket */ \"./client/store/socket/index.js\");\n\nvar _middleware = __webpack_require__(/*! ./middleware */ \"./client/store/middleware.js\");\n\nvar _reduxDevtoolsExtension = __webpack_require__(/*! redux-devtools-extension */ \"./node_modules/redux-devtools-extension/index.js\");\n\nvar reducer = (0, _redux.combineReducers)({\n  user: _user.user,\n  game: _game.game\n});\n\nvar store = (0, _redux.createStore)(reducer, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_middleware.middleware)));\n\n_socket.socket.connect();\n\nexports.store = store;\nexports.loginThunk = _user.loginThunk;\nexports.logout = _user.logout;\nexports.joinRoom = _game.joinRoom;\nexports.leaveRoom = _game.leaveRoom;\n\n//# sourceURL=webpack:///./client/store/index.js?");
 
 /***/ }),
 
@@ -182,6 +182,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./client/store/reducers/game.js":
+/*!***************************************!*\
+  !*** ./client/store/reducers/game.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar initState = {\n  room: null\n};\n\nvar JOIN_ROOM = \"JOIN_ROOM\";\nvar LEAVE_ROOM = \"LEAVE_ROOM\";\n\nvar joinRoom = function joinRoom(room) {\n  return { type: JOIN_ROOM, room: room };\n};\nvar leaveRoom = function leaveRoom(room) {\n  return { type: LEAVE_ROOM };\n};\n\nvar game = function game() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n  var action = arguments[1];\n\n  switch (action.type) {\n    case JOIN_ROOM:\n      var room = action.room;\n\n      state.room = room;\n      return state;\n    case LEAVE_ROOM:\n      state.room = null;\n      return state;\n    default:\n      return state;\n  }\n};\n\nexports.game = game;\nexports.joinRoom = joinRoom;\nexports.leaveRoom = leaveRoom;\n\n//# sourceURL=webpack:///./client/store/reducers/game.js?");
+
+/***/ }),
+
 /***/ "./client/store/reducers/user.js":
 /*!***************************************!*\
   !*** ./client/store/reducers/user.js ***!
@@ -190,7 +202,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.logout = exports.loginThunk = exports.user = undefined;\n\nvar _axios2 = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios3 = _interopRequireDefault(_axios2);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initState = {\n    userName: null\n};\n\nvar LOGIN = 'LOGIN';\nvar LOGOUT = 'LOGOUT';\nvar ERROR = 'ERROR';\n\nvar login = function login(user) {\n    return { type: LOGIN, user: user };\n};\nvar logout = function logout() {\n    return { type: LOGOUT };\n};\nvar err = function err(error) {\n    return { type: ERROR, error: error };\n};\n\nvar loginThunk = function loginThunk(userName, password) {\n    try {\n        var _axios = (0, _axios3.default)({\n            method: 'PUT',\n            url: window.location.origin + '/auth',\n            data: {\n                userName: userName,\n                password: password\n            }\n        }),\n            data = _axios.data;\n\n        dispatch(login(data));\n    } catch (error) {\n        dispatch(err(error));\n    }\n};\n\nvar user = function user() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n    var action = arguments[1];\n\n\n    switch (action.type) {\n        case LOGIN:\n            return action.user;\n        case LOGOUT:\n            return initState;\n        case ERROR:\n            return action.error;\n        default:\n            return state;\n    }\n};\n\nexports.user = user;\nexports.loginThunk = loginThunk;\nexports.logout = logout;\n\n//# sourceURL=webpack:///./client/store/reducers/user.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.logout = exports.loginThunk = exports.user = undefined;\n\nvar _axios2 = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios3 = _interopRequireDefault(_axios2);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar initState = {\n  userName: null\n};\n\nvar LOGIN = \"LOGIN\";\nvar LOGOUT = \"LOGOUT\";\nvar ERROR = \"ERROR\";\n\nvar login = function login(user) {\n  return { type: LOGIN, user: user };\n};\nvar logout = function logout() {\n  return { type: LOGOUT };\n};\nvar err = function err(error) {\n  return { type: ERROR, error: error };\n};\n\nvar loginThunk = function loginThunk(userName, password) {\n  try {\n    var _axios = (0, _axios3.default)({\n      method: \"PUT\",\n      url: window.location.origin + \"/auth\",\n      data: {\n        userName: userName,\n        password: password\n      }\n    }),\n        data = _axios.data;\n\n    dispatch(login(data));\n  } catch (error) {\n    dispatch(err(error));\n  }\n};\n\nvar user = function user() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;\n  var action = arguments[1];\n\n  switch (action.type) {\n    case LOGIN:\n      return action.user;\n    case LOGOUT:\n      return initState;\n    case ERROR:\n      return action.error;\n    default:\n      return state;\n  }\n};\n\nexports.user = user;\nexports.loginThunk = loginThunk;\nexports.logout = logout;\n\n//# sourceURL=webpack:///./client/store/reducers/user.js?");
 
 /***/ }),
 
@@ -1362,7 +1374,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

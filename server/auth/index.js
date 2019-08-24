@@ -11,8 +11,8 @@ router.post("./", (req, res, next) => {
 
 router.put("./", (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const user = User.findOne({ where: { username } });
+    const { userName, password } = req.body;
+    const user = User.findOne({ where: { userName } });
     if (user) {
       user.validate(password)
         ? res.status(200).send(user)

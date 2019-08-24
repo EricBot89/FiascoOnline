@@ -1,25 +1,20 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
-import {user} from './reducers/user'
-import { socket } from './socket'
-import {middleware} from './middleware'
-import { composeWithDevTools } from 'redux-devtools-extension';
-
-
-const initState = {
-    state: null,
-}
-
-const rootReducer = (state = initState, action) => {
-    return state
-}
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { user, loginThunk, logout } from "./reducers/user";
+import { game, joinRoom, leaveRoom } from "./reducers/game";
+import { socket } from "./socket";
+import { middleware } from "./middleware";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const reducer = combineReducers({
-    rootReducer,
-    user
-})
+  user,
+  game
+});
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(middleware)))
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(middleware))
+);
 
-socket.connect()
+socket.connect();
 
-export {store}
+export { store, loginThunk, logout, joinRoom, leaveRoom };
