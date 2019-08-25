@@ -12,7 +12,7 @@ server.use(express.static(path.join(__dirname, "../public")))
 server.use(volleyball)
 
 server.use('/api', require('./api'))
-server.use('./auth', require('./auth'))
+server.use('/auth', require('./auth'))
 
 server.get('*', (req,res,next) => {
     res.status(200).sendFile(path.join(__dirname, "../public/index.html"));
@@ -20,7 +20,7 @@ server.get('*', (req,res,next) => {
 
 server.use( (error, req, res, next) =>{
     console.log(error)
-    res.status(error.status || 500).send(err.message || "There was a problem")
+    res.status(error.status || 500).send(error.message || "There was a problem")
 })
 
 const dbInit =  () => {

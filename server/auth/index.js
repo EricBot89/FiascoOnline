@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../db/models");
 
-router.post("./", (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   try {
     res.status(200).send("this will handle signup -- change status code");
   } catch (error) {
@@ -9,9 +9,9 @@ router.post("./", (req, res, next) => {
   }
 });
 
-router.put("./", (req, res, next) => {
+router.post("/login", (req, res, next) => {
   try {
-    const { userName, password } = req.body;
+    const {userName} = req.body
     const user = User.findOne({ where: { userName } });
     if (user) {
       user.validate(password)

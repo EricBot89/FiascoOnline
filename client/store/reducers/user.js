@@ -1,4 +1,5 @@
 import axios from "axios";
+import '@babel/polyfill'
 
 const initState = {
   userName: null
@@ -19,20 +20,23 @@ const err = error => {
 };
 
 const loginThunk = (userName, password) => {
-  try {
-    const { data } = axios({
-      method: "PUT",
-      url: `${window.location.origin}/auth`,
-      data: {
-        userName,
-        password
+  return async dispatch => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: `${window.location.origin}/auth/login`,
+        data: { userName, password}
+      });
+      if(data){
+      dispatch(login(data));
       }
-    });
-
-    dispatch(login(data));
-  } catch (error) {
-    dispatch(err(error));
-  }
+      else {
+        dispatch(err("invalid login attempt"))
+      }
+    } catch (error) {
+      dispatch(err(error));
+    }
+  };
 };
 
 const user = (state = initState, action) => {

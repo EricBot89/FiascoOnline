@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Home, Rooms } from "..";
+import { Home, Rooms } from "../comps";
+import {Login} from './Login'
 import { connect } from "react-redux";
 
 const App = props => (
@@ -19,10 +20,11 @@ const App = props => (
           </div>
         </nav>
       </div>
-
-      <Route path="/home" exact component={Home} />
-      <Route path="/home/games" exact component={Rooms} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/home/games" component={Rooms} />
     </Router>
+
   </div>
 );
 

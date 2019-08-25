@@ -1,37 +1,42 @@
 import React from "react";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 import { loginThunk } from "../store";
 
-class Login extends React.Component {
+class DCLogin extends React.Component {
+  
   constructor(props) {
     super(props);
 
     this.state = {
       userName: "",
       password: ""
-    };
+    }
+
+    this.formController = this.formController.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+
   }
 
-  formController = (event) => {
-      const {name, value} = event.target
-      const update = {}
-      update[name] = value
-      this.setState({...update})
-  }
+  formController (event) {
+    const { name, value } = event.target;
+    const update = {};
+    update[name] = value;
+    this.setState( update );
+  };
 
-  onSubmit = (event) => {
+  onSubmit(event) {
     event.preventDefault();
     const { username, password } = this.state;
-    this.props.login(username, password)
-    this.setState({username: '', password: ''})
-  }
+    this.props.login(username, password);
+    this.setState({ username: "", password: "" });
+  };
 
   render() {
     return (
-      <form onSubmit = {this.onSubmit}>
-        <label for="userName">User Name</label>
+      <form onSubmit={this.onSubmit}>
+        <label htmlFor="userName">User Name</label>
         <input type="text" name="userName" onChange={this.formController} />
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="password" name="password" onChange={this.formController} />
         <button type="submit">Sign in</button>
       </form>
@@ -39,14 +44,19 @@ class Login extends React.Component {
   }
 }
 
-mapState = state => ({
-    user: state.user.username
-})
+const mapState = state => ({
+  user: state.user.username
+});
 
-mapDispatch = dispatch => ({
-  login(userName,password){
-      dispatch(loginThunk(userName,password))
+const mapDispatch = dispatch => ({
+  login(userName, password) {
+    dispatch(loginThunk(userName, password));
   }
-})
+});
 
-export default connect()(Login)
+const Login = connect(
+  mapState,
+  mapDispatch
+)(DCLogin);
+
+export { Login };
