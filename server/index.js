@@ -14,18 +14,18 @@ server.use(volleyball)
 server.use('/api', require('./api'))
 server.use('/auth', require('./auth'))
 
-server.get('*', (req,res,next) => {
-    res.status(200).sendFile(path.join(__dirname, "../public/index.html"));
+server.get('*', (req, res, next) => {
+    res.status(200).sendFile(path.join(__dirname, "../public/index.html"))
 })
 
-server.use( (error, req, res, next) =>{
+server.use((error, req, res, next) => {
     console.log(error)
     res.status(error.status || 500).send(error.message || "There was a problem")
 })
 
-const dbInit =  () => {
-  db.sync()
-} 
+const dbInit = () => {
+    db.sync()
+}
 
 const serverInstance = server.listen(PORT, () => {
     dbInit()

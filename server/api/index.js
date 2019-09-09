@@ -8,5 +8,6 @@ router.get('/', (req,res,next) => {
 })
 
 router.use('/users', require('./users'))
+router.use('/admin', require('./admin'))
 
 module.exports = router 
