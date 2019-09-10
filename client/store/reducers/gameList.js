@@ -15,7 +15,7 @@ const dummyRooms = [
 ]
 
 const initState = {
-    openGames = dummyRooms
+    openGames: dummyRooms
 }
 
 let UPDATE = "UPDATE"
@@ -29,3 +29,5 @@ const gameList = (state = initState, action) => {
     }
     return state
 }
+
+export {gameList}
