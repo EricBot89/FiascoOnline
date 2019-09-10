@@ -192,3 +192,16 @@ nav {
   border: 1px solid lightblue;
   box-shadow: 2px 1px lightblue;
 }
+
+.login-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+.login-form{
+  width: 30%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

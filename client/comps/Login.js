@@ -31,6 +31,7 @@ class DCLogin extends React.Component {
 
   render() {
     return (
+      <div className="login-container">
       <form onSubmit={this.onSubmit} className="login-form">
         <label htmlFor="userName">User Name</label>
         <input type="text" name="userName" onChange={this.formController} />
@@ -38,6 +39,7 @@ class DCLogin extends React.Component {
         <input type="password" name="password" onChange={this.formController} />
         <button type="submit">Sign in</button>
       </form>
+      </div>
     );
   }
 }
