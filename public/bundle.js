@@ -118,7 +118,7 @@ eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/i
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.Home = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home(props) {\n    return _react2.default.createElement(\n        'h2',\n        null,\n        'This is a homepage'\n    );\n};\n\nexports.Home = Home;\n\n//# sourceURL=webpack:///./client/comps/Home.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.Home = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home(props) {\n    return _react2.default.createElement(\n        \"div\",\n        { className: \"homescreen\" },\n        _react2.default.createElement(\n            \"div\",\n            null,\n            _react2.default.createElement(\n                \"h1\",\n                null,\n                \"This app allows users to play fiasco online!\"\n            )\n        ),\n        _react2.default.createElement(\n            \"div\",\n            null,\n            _react2.default.createElement(\n                \"ul\",\n                null,\n                _react2.default.createElement(\n                    \"li\",\n                    null,\n                    \"Check out the public games to play other users\"\n                ),\n                _react2.default.createElement(\n                    \"li\",\n                    null,\n                    \"Login to to save transcripts or video of your game\"\n                ),\n                _react2.default.createElement(\n                    \"li\",\n                    null,\n                    \"logged in users can also make private game\"\n                )\n            )\n        )\n    );\n};\n\nexports.Home = Home;\n\n//# sourceURL=webpack:///./client/comps/Home.js?");
 
 /***/ }),
 
@@ -142,7 +142,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Rooms = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Rooms = function Rooms(props) {\n  return _react2.default.createElement(\n    \"div\",\n    { className: \"room-list\" },\n    _react2.default.createElement(\n      \"p\",\n      null,\n      \" a list of rooms\"\n    )\n  );\n};\n\nexports.Rooms = Rooms;\n\n//# sourceURL=webpack:///./client/comps/Rooms.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Rooms = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar dummyRooms = ['room1', 'room2', 'room3'];\n\nvar Rooms = function Rooms(props) {\n  var rooms = dummyRooms;\n  return _react2.default.createElement(\n    'div',\n    { className: 'room-list' },\n    rooms.map(function (room) {\n      return _react2.default.createElement(\n        'div',\n        { classname: 'room-card' },\n        _react2.default.createElement(\n          _reactRouterDom.Link,\n          { to: '/game/' + room },\n          room\n        )\n      );\n    })\n  );\n};\nexports.Rooms = Rooms;\n\n//# sourceURL=webpack:///./client/comps/Rooms.js?");
 
 /***/ }),
 
@@ -4842,7 +4842,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

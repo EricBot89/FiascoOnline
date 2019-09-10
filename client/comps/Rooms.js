@@ -1,9 +1,22 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
-const Rooms = (props) => (
-  <div className="room-list" >
-      <p> a list of rooms</p>
-  </div>
-)
+const dummyRooms = [
+  'room1',
+  'room2',
+  'room3'
+]
 
-export {Rooms}
+const Rooms = (props) => {
+  const rooms = dummyRooms
+  return (
+    <div className="room-list" >
+      {rooms.map(room => (
+        <div classname='room-card'>
+          <Link to={`/game/${room}`}>{room}</Link>
+        </div>
+      ))}
+    </div >
+  )
+}
+export { Rooms }
