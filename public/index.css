@@ -155,3 +155,17 @@ nav{
   justify-content: center;
   align-items: center;
 }
+
+
+.room-list{
+  border:1px solid black;
+  padding: 25px;
+  margin: 62px;
+}
+
+.room-card{
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid lightblue;
+  box-shadow: 2px 1px lightblue;
+}
