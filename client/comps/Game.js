@@ -1,5 +1,3 @@
-import React from 'react'
+import React from "react";
 
-const Game = (props) => (
-    <h1>Game</h1>
-)
+const Game = props => <h1>Game</h1>;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import '@babel/polyfill'
+import "@babel/polyfill";
 
 const initState = {
   userName: null
@@ -25,13 +25,12 @@ const loginThunk = (userName, password) => {
       const { data } = await axios({
         method: "POST",
         url: `${window.location.origin}/auth/login`,
-        data: { userName, password}
+        data: { userName, password }
       });
-      if(data){
-      dispatch(login(data));
-      }
-      else {
-        dispatch(err("invalid login attempt"))
+      if (data) {
+        dispatch(login(data));
+      } else {
+        dispatch(err("invalid login attempt"));
       }
     } catch (error) {
       dispatch(err(error));
