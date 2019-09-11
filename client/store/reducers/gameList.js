@@ -10,6 +10,38 @@ const dummyRooms = [
   {
     id: "room3",
     name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
+  },
+  {
+    id: "room3",
+    name: "private game to which you have an invite"
   }
 ];
 

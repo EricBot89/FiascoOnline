@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginThunk } from "../store";
+import "./Login.css"
 
 class DCLogin extends React.Component {
   constructor(props) {

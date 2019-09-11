@@ -1,0 +1,47 @@
+
+.rooms-container {
+    display: flex;
+    flex-flow: row;
+    margin: 32px;
+    padding: 25px;
+    height: 65vh;
+  }
+  
+  .rooms-tools {
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: -1px -1px black;
+  }
+  
+  .rooms-tools > button {
+    background: darkgray;
+    color: #92211d;
+    margin: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 1px lightblue;
+  }
+  
+  .room-list {
+    display: flex;
+    flex-flow: column;
+    width: 60%;
+    border: 1px solid black;
+    background:darkgray;
+    box-shadow: -1px -1px black;
+    padding: 25px;
+    overflow: scroll;
+  }
+
+  .room-list::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .room-card {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    background: white;
+    box-shadow: 2px 1px lightblue;
+  }
