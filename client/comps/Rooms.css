@@ -13,14 +13,15 @@
     padding: 10px;
     border: 1px solid black;
     box-shadow: -1px -1px black;
+    background: darkgray
   }
   
   .rooms-tools > button {
-    background: darkgray;
+    background: lightgray;
     color: #92211d;
     margin: 5px;
     border: 1px solid black;
-    box-shadow: 2px 1px lightblue;
+    box-shadow: 2px 1px black;
   }
   
   .room-list {
@@ -43,5 +44,5 @@
     margin: 5px;
     border: 1px solid black;
     background: white;
-    box-shadow: 2px 1px lightblue;
+    box-shadow: 2px 1px black;
   }
