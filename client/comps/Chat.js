@@ -30,7 +30,8 @@ class DCChat extends React.Component {
       e.preventDefault()
       const {typing} = this.state
       // Phone the server and send this messagae
-      this.setState({typing: ''})
+      dumyChatLog.push(typing)
+      this.setState({typing: '',chatLog: dumyChatLog.join('\n')})
   }
 
   render() {
