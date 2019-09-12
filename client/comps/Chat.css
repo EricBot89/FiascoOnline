@@ -1,0 +1,8 @@
+.chat-window{
+    display: flex;
+    flex-flow: column;
+}
+
+.chat-log{
+    resize: none;
+}

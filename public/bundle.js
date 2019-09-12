@@ -98,6 +98,29 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./client/comps/Chat.css":
+/*!*******************************!*\
+  !*** ./client/comps/Chat.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./Chat.css */ \"./node_modules/css-loader/dist/cjs.js!./client/comps/Chat.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./client/comps/Chat.css?");
+
+/***/ }),
+
+/***/ "./client/comps/Chat.js":
+/*!******************************!*\
+  !*** ./client/comps/Chat.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Chat = undefined;\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\n__webpack_require__(/*! ./Chat.css */ \"./client/comps/Chat.css\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar dumyChatLog = [['[user1 12:13:26] hi'], ['[user2 12:24:26] hello'], ['[user3 01:24:26] quite a long message to the chat, meant to bleed over onto another line']];\n\nvar DCChat = function (_React$Component) {\n  _inherits(DCChat, _React$Component);\n\n  function DCChat(props) {\n    _classCallCheck(this, DCChat);\n\n    var _this = _possibleConstructorReturn(this, (DCChat.__proto__ || Object.getPrototypeOf(DCChat)).call(this, props));\n\n    var locale = _this.props.locale;\n\n    _this.state = {\n      locale: locale,\n      typing: '',\n      chatLog: dumyChatLog.join('\\n')\n    };\n\n    _this.formControl = _this.formControl.bind(_this);\n    _this.onSubmit = _this.onSubmit.bind(_this);\n    return _this;\n  }\n\n  _createClass(DCChat, [{\n    key: \"formControl\",\n    value: function formControl(e) {\n      var value = e.target.value;\n\n      this.setState({ typing: value });\n    }\n  }, {\n    key: \"onSubmit\",\n    value: function onSubmit(e) {\n      e.preventDefault();\n      var typing = this.state.typing;\n      // Phone the server and send this messagae\n\n      this.setState({ typing: '' });\n    }\n  }, {\n    key: \"render\",\n    value: function render() {\n      return _react2.default.createElement(\n        \"div\",\n        { className: \"chat-window\" },\n        _react2.default.createElement(\"textarea\", {\n          className: \"chat-log\",\n          value: this.state.chatLog,\n          rows: 19,\n          readOnly: true\n        }),\n        _react2.default.createElement(\n          \"form\",\n          {\n            className: \"chat-input\",\n            onSubmit: this.onSubmit\n          },\n          _react2.default.createElement(\"input\", {\n            value: this.state.typing,\n            onChange: this.formControl\n          }),\n          _react2.default.createElement(\n            \"button\",\n            { type: \"submit\" },\n            \"GO\"\n          )\n        )\n      );\n    }\n  }]);\n\n  return DCChat;\n}(_react2.default.Component);\n\nvar Chat = (0, _reactRedux.connect)(null, null)(DCChat);\n\nexports.Chat = Chat;\n\n//# sourceURL=webpack:///./client/comps/Chat.js?");
+
+/***/ }),
+
 /***/ "./client/comps/Game.js":
 /*!******************************!*\
   !*** ./client/comps/Game.js ***!
@@ -164,7 +187,7 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Rooms = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\n__webpack_require__(/*! ./Rooms.css */ \"./client/comps/Rooms.css\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar DCRooms = function DCRooms(props) {\n  var rooms = props.rooms;\n\n  return _react2.default.createElement(\n    \"div\",\n    { className: \"rooms-container\" },\n    _react2.default.createElement(\n      \"div\",\n      { className: \"rooms-tools\" },\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Create Game\"\n      ),\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Join Game With Code\"\n      ),\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Refresh Game List\"\n      )\n    ),\n    _react2.default.createElement(\n      \"div\",\n      { className: \"room-list\" },\n      rooms.map(function (room, idx) {\n        return _react2.default.createElement(\n          \"div\",\n          { className: \"room-card\", key: idx },\n          _react2.default.createElement(\n            _reactRouterDom.Link,\n            { to: \"/game/\" + room.id },\n            room.name\n          )\n        );\n      })\n    )\n  );\n};\n\nvar mapState = function mapState(state) {\n  return {\n    rooms: state.gameList.openGames\n  };\n};\n\nvar Rooms = (0, _reactRedux.connect)(mapState, null)(DCRooms);\n\nexports.Rooms = Rooms;\n\n//# sourceURL=webpack:///./client/comps/Rooms.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Rooms = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _Chat = __webpack_require__(/*! ./Chat */ \"./client/comps/Chat.js\");\n\n__webpack_require__(/*! ./Rooms.css */ \"./client/comps/Rooms.css\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar DCRooms = function DCRooms(props) {\n  var rooms = props.rooms;\n\n  return _react2.default.createElement(\n    \"div\",\n    { className: \"rooms-container\" },\n    _react2.default.createElement(\n      \"div\",\n      { className: \"rooms-tools\" },\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Create Game\"\n      ),\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Join Game With Code\"\n      ),\n      _react2.default.createElement(\n        \"button\",\n        null,\n        \"Refresh Game List\"\n      ),\n      _react2.default.createElement(_Chat.Chat, { locale: \"Global\" })\n    ),\n    _react2.default.createElement(\n      \"div\",\n      { className: \"room-list\" },\n      rooms.map(function (room, idx) {\n        return _react2.default.createElement(\n          \"div\",\n          { className: \"room-card\", key: idx },\n          _react2.default.createElement(\n            _reactRouterDom.Link,\n            { to: \"/game/\" + room.id },\n            room.name\n          )\n        );\n      })\n    )\n  );\n};\n\nvar mapState = function mapState(state) {\n  return {\n    rooms: state.gameList.openGames\n  };\n};\n\nvar Rooms = (0, _reactRedux.connect)(mapState, null)(DCRooms);\n\nexports.Rooms = Rooms;\n\n//# sourceURL=webpack:///./client/comps/Rooms.js?");
 
 /***/ }),
 
@@ -4163,6 +4186,17 @@ eval("// ie9- setTimeout & setInterval additional parameters fix\nvar global = _
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("__webpack_require__(/*! ../modules/web.timers */ \"./node_modules/core-js/modules/web.timers.js\");\n__webpack_require__(/*! ../modules/web.immediate */ \"./node_modules/core-js/modules/web.immediate.js\");\n__webpack_require__(/*! ../modules/web.dom.iterable */ \"./node_modules/core-js/modules/web.dom.iterable.js\");\nmodule.exports = __webpack_require__(/*! ../modules/_core */ \"./node_modules/core-js/modules/_core.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js/web/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/comps/Chat.css":
+/*!*********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/comps/Chat.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".chat-window{\\n    display: flex;\\n    flex-flow: column;\\n}\\n\\n.chat-log{\\n    resize: none;\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./client/comps/Chat.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
