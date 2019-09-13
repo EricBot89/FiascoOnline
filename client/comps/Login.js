@@ -31,6 +31,7 @@ class DCLogin extends React.Component {
   }
 
   render() {
+    const {chatLog} = this.props
     return (
       <div className="login-container">
       <form onSubmit={this.onSubmit} className="login-form">

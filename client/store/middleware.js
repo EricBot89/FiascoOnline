@@ -1,4 +1,5 @@
 import { socket } from './socket'
+import {updateLog} from "./"
 
 
   
@@ -10,12 +11,9 @@ import { socket } from './socket'
         return action(dispatch, getState)
       }
 
-      socket.on('test', (str) => {
-          console.log(`The server sent a test with string ${str}`)
-      })
-
       socket.on("newChatMessage", (mssgString) => {
         console.log(mssgString)
+        dispatch(updateLog(mssgString))
       })
 
       console.log(getState())

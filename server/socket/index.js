@@ -1,3 +1,5 @@
+const Chat = require("../db/models/Chat")
+
 module.exports = io => {
   io.on("connection", socket => {
     console.log(`say hello to ${socket.id}`);
@@ -7,8 +9,10 @@ module.exports = io => {
     });
 
     socket.on("chatMessage", (user, mssg, locale ) => {
-        socket.emit("newChatMessage", mssg)
-        console.log("a chat got here: ", mssg)
+        const currentTime = new Date
+        const mssgString = `[${user}: ${currentTime}] ${mssg}`
+        console.log(mssgString)
+        io.sockets.emit("newChatMessage", mssgString)
     } );
   });
 };
