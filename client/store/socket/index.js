@@ -12,6 +12,7 @@ socket.on('test', (str) => {
 
 const sendChatMessage = (user, mssg ,locale) => {
     socket.emit("chatMessage", user, mssg, locale)
+    console.log("a chat is hitting the server")
 }
 
 export { socket, sendChatMessage}

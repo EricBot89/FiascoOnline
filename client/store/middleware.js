@@ -15,7 +15,7 @@ import { socket } from './socket'
       })
 
       socket.on("newChatMessage", (mssgString) => {
-        dispatch()
+        console.log(mssgString)
       })
 
       console.log(getState())

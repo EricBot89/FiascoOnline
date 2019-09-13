@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import {sendChatMessage} from "../store"
 import "./Chat.css"
 
 const dumyChatLog = [ 
@@ -28,8 +29,9 @@ class DCChat extends React.Component {
 
   onSubmit(e){
       e.preventDefault()
-      const {typing} = this.state
-      // Phone the server and send this messagae
+      const {typing, locale} = this.state
+      const {user} = this.props || "anon"
+      sendChatMessage(user, typing, locale )
       dumyChatLog.push(`[anon ${Date.now()}]` + typing)
       this.setState({typing: '',chatLog: dumyChatLog.join('\n')})
   }
