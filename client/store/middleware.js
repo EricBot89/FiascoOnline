@@ -14,6 +14,10 @@ import { socket } from './socket'
           console.log(`The server sent a test with string ${str}`)
       })
 
+      socket.on("newChatMessage", (mssgString) => {
+        dispatch()
+      })
+
       console.log(getState())
       console.log(next(action))
       console.log(getState())

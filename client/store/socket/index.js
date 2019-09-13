@@ -10,4 +10,8 @@ socket.on('test', (str) => {
     console.log(`The server sent a test with string ${str}`)
 })
 
-export { socket }
+const sendChatMessage = (user, mssg ,locale) => {
+    socket.emit("chatMessage", user, mssg, locale)
+}
+
+export { socket, sendChatMessage}

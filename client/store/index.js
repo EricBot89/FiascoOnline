@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user, loginThunk, logout } from "./reducers/user";
 import { game, joinRoom, leaveRoom } from "./reducers/game";
 import { gameList } from "./reducers/gameList";
-import { socket } from "./socket";
+import { socket, sendChatMessage} from "./socket";
 import { middleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -19,4 +19,4 @@ const store = createStore(
 
 socket.connect();
 
-export { store, loginThunk, logout, joinRoom, leaveRoom };
+export { store, loginThunk, logout, joinRoom, leaveRoom, sendChatMessage };
