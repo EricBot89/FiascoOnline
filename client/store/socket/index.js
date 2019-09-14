@@ -14,4 +14,7 @@ const sendChatMessage = (user, mssg ,locale) => {
     socket.emit("chatMessage", user, mssg, locale)
 }
 
+socket.connect();
+
+
 export { socket, sendChatMessage}

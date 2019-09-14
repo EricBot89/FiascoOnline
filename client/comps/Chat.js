@@ -1,19 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sendChatMessage } from "../store";
+import { sendChatMessage, updateLog, syncLog } from "../store";
 import "./Chat.css";
 
 class DCChat extends React.Component {
+  
   constructor(props) {
     super(props);
-    const { locale, chatLog } = this.props;
     this.state = {
       typing: "",
-      chatLog: []
     };
 
     this.formControl = this.formControl.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.syncChat()
   }
 
   formControl(e) {
@@ -24,8 +27,9 @@ class DCChat extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const { typing } = this.state;
-    const { user, locale } = this.props || "anon";
-    sendChatMessage("anon", typing, locale);
+    const { user, locale, addChat } = this.props;
+    sendChatMessage(user, typing, locale)
+    addChat(typing, locale)
     this.setState({ typing: "" });
   }
 
@@ -56,9 +60,20 @@ const mapState = state => {
   };
 };
 
+const mapDispatch = dispatch => {
+  return {
+    addChat(typing, locale){
+      dispatch(updateLog(typing));
+    },
+    syncChat(){
+      dispatch(syncLog())
+    }
+  }
+}
+
 const Chat = connect(
   mapState,
-  null
+  mapDispatch
 )(DCChat);
 
 export { Chat };

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Home, Rooms } from "../comps";
+import { Home, Rooms, Game } from "../comps";
 import { Login } from "./Login";
 import { connect } from "react-redux";
 
@@ -23,6 +23,7 @@ const App = props => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/home/games" component={Rooms} />
+      <Route path="/game" component={Game}/>
     </Router>
   </div>
 );

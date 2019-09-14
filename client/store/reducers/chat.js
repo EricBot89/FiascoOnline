@@ -14,10 +14,14 @@ const initState = {
 const JOIN_ROOM = "JOIN_ROOM";
 const LEAVE_ROOM = "LEAVE_ROOM";
 const UPDATE_LOG = "UPDATE_LOG";
-const SYNC_LOG = "SYNC_LOG"
+const SYNC_LOG = "SYNC_LOG";
 
 const updateLog = mssgString => {
   return { type: UPDATE_LOG, mssgString };
+};
+
+const syncLog = (chatLog = dumyChatLog) => {
+  return { type: SYNC_LOG, chatLog };
 };
 
 const chat = (state = initState, action) => {
@@ -31,15 +35,17 @@ const chat = (state = initState, action) => {
       return state;
     case UPDATE_LOG:
       const { mssgString } = action;
-      state.chatLog.push(mssgString);
-      return state;
+      const newLog = state.chatLog
+      newLog.push(mssgString);
+      const newState = {locale: state.locale, chatLog: newLog}
+      return newState;
     case SYNC_LOG:
       const { chatLog } = action;
-      state.chatLog = chatLog
+      state.chatLog = chatLog;
       return state;
     default:
       return state;
   }
 };
 
-export {chat, updateLog}
+export { chat, updateLog, syncLog };
