@@ -1,14 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sendChatMessage, updateLog, syncLog } from "../store";
+import { sendChatMessage, updateLog, syncLog, socket } from "../store";
 import "./Chat.css";
 
 class DCChat extends React.Component {
   
   constructor(props) {
     super(props);
+
+    const { chatLog } = this.props;
+    const log = chatLog.join('\n')
+
     this.state = {
       typing: "",
+      log
     };
 
     this.formControl = this.formControl.bind(this);
@@ -16,7 +21,15 @@ class DCChat extends React.Component {
   }
 
   componentDidMount(){
+
     this.props.syncChat()
+
+    socket.on("newChatMessage", () => {
+      const { chatLog } = this.props;
+      const log = chatLog.join('\n')
+      this.setState({log})
+    })
+
   }
 
   formControl(e) {
@@ -29,13 +42,12 @@ class DCChat extends React.Component {
     const { typing } = this.state;
     const { user, locale, addChat } = this.props;
     sendChatMessage(user, typing, locale)
-    addChat(typing, locale)
     this.setState({ typing: "" });
+
   }
 
   render() {
-    const { chatLog } = this.props;
-    const log = chatLog.join('\n')
+    const {log} = this.state
     return (
       <div className="chat-window">
         <textarea
@@ -62,9 +74,6 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    addChat(typing, locale){
-      dispatch(updateLog(typing));
-    },
     syncChat(){
       dispatch(syncLog())
     }

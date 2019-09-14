@@ -15,7 +15,7 @@ module.exports = io => {
       const currentTime = new Date();
       const mssgString = `[${user}: ${currentTime}] ${mssg}`;
       console.log(mssgString)
-      socket.broadcast.to("Global").emit("newChatMessage", mssgString)
+      io.sockets.in("Global").emit("newChatMessage", mssgString)
     });
 
     socket.on("disconnect", () => {

@@ -22,4 +22,4 @@ const store = createStore(
 );
 
 
-export { store, loginThunk, logout, joinRoom, leaveRoom, sendChatMessage, updateLog, syncLog };
+export { store, socket, loginThunk, logout, joinRoom, leaveRoom, sendChatMessage, updateLog, syncLog };

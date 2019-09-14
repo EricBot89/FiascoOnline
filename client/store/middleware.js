@@ -21,8 +21,6 @@ const middleware = ({ dispatch, getState }) => {
     console.log(getState());
     console.log(next(action));
     console.log(getState());
-
-    return next(action)
   };
 };
 
