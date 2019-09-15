@@ -4,12 +4,11 @@ import { sendChatMessage, updateLog, syncLog, socket } from "../store";
 import "./Chat.css";
 
 class DCChat extends React.Component {
-  
   constructor(props) {
     super(props);
 
     const { chatLog } = this.props;
-    const log = chatLog.join('\n')
+    const log = chatLog.join("\n");
 
     this.state = {
       typing: "",
@@ -18,18 +17,24 @@ class DCChat extends React.Component {
 
     this.formControl = this.formControl.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.updateChatLog = this.updateChatLog.bind(this)
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    this.props.syncChat();
 
-    this.props.syncChat()
+    socket.on("newChatMessage",this.updateChatLog);
+  }
 
-    socket.on("newChatMessage", () => {
-      const { chatLog } = this.props;
-      const log = chatLog.join('\n')
-      this.setState({log})
-    })
+  updateChatLog() {
+    const { chatLog } = this.props;
+    console.log(chatLog)
+    const log = chatLog.join("\n");
+    this.setState({ log });
+  }
 
+  componentWillUnmount() {
+    socket.off("newChatMessage");
   }
 
   formControl(e) {
@@ -37,29 +42,22 @@ class DCChat extends React.Component {
     this.setState({ typing: value });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onSubmit() {
     const { typing } = this.state;
-    const { user, locale, addChat } = this.props;
-    sendChatMessage(user, typing, locale)
+    const { user, locale } = this.props;
+    sendChatMessage(user || "anon", typing, locale)
     this.setState({ typing: "" });
-
   }
 
   render() {
-    const {log} = this.state
+    const { log } = this.state;
     return (
       <div className="chat-window">
-        <textarea
-          className="chat-log"
-          value={log}
-          rows={19}
-          readOnly
-        />
-        <form className="chat-input" onSubmit={this.onSubmit}>
+        <textarea className="chat-log" value={log} rows={19} readOnly />
+        <div className="chat-input">
           <input value={this.state.typing} onChange={this.formControl} />
-          <button type="submit">GO</button>
-        </form>
+          <button onClick={this.onSubmit}>GO</button>
+        </div>
       </div>
     );
   }
@@ -74,11 +72,11 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    syncChat(){
-      dispatch(syncLog())
+    syncChat() {
+      dispatch(syncLog());
     }
-  }
-}
+  };
+};
 
 const Chat = connect(
   mapState,

@@ -2,12 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user, loginThunk, logout } from "./reducers/user";
 import { game, joinRoom, leaveRoom } from "./reducers/game";
 import { gameList } from "./reducers/gameList";
-import {chat, updateLog, syncLog} from './reducers/chat'
-import { socket, sendChatMessage} from "./socket";
-import { middleware } from "./middleware";
+import { chat, updateLog, syncLog } from "./reducers/chat";
+import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
-
-
+import { socket, sendChatMessage } from "./socket"
 
 const reducer = combineReducers({
   user,
@@ -18,8 +16,17 @@ const reducer = combineReducers({
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(middleware))
+  composeWithDevTools(applyMiddleware(thunkMiddleware, loggingMiddleware))
 );
 
-
-export { store, socket, loginThunk, logout, joinRoom, leaveRoom, sendChatMessage, updateLog, syncLog };
+export {
+  store,
+  socket,
+  loginThunk,
+  logout,
+  joinRoom,
+  leaveRoom,
+  sendChatMessage,
+  updateLog,
+  syncLog
+};

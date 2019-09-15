@@ -1,14 +1,6 @@
-const dumyChatLog = [
-  ["[user1 12:13:26] hi"],
-  ["[user2 12:24:26] hello"],
-  [
-    "[user3 01:24:26] quite a long message to the chat, meant to bleed over onto another line"
-  ]
-];
-
 const initState = {
   locale: "Global",
-  chatLog: dumyChatLog
+  chatLog: ["CHAT"]
 };
 
 const JOIN_ROOM = "JOIN_ROOM";
@@ -20,7 +12,7 @@ const updateLog = mssgString => {
   return { type: UPDATE_LOG, mssgString };
 };
 
-const syncLog = (chatLog = dumyChatLog) => {
+const syncLog = (chatLog = ["CHAT"]) => {
   return { type: SYNC_LOG, chatLog };
 };
 
@@ -35,10 +27,8 @@ const chat = (state = initState, action) => {
       return state;
     case UPDATE_LOG:
       const { mssgString } = action;
-      const newLog = state.chatLog
-      newLog.push(mssgString);
-      const newState = {locale: state.locale, chatLog: newLog}
-      return newState;
+      state.chatLog.push(mssgString);
+      return {chatLog: state.chatLog, locale: state.locale};
     case SYNC_LOG:
       const { chatLog } = action;
       state.chatLog = chatLog;
