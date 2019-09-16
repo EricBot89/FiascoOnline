@@ -1,6 +1,6 @@
 const initState = {
   locale: "Global",
-  chatLog: ["CHAT"]
+  chatLog: []
 };
 
 const JOIN_ROOM = "JOIN_ROOM";
@@ -12,7 +12,7 @@ const updateLog = mssgString => {
   return { type: UPDATE_LOG, mssgString };
 };
 
-const syncLog = (chatLog = ["CHAT"]) => {
+const syncLog = (chatLog = []) => {
   return { type: SYNC_LOG, chatLog };
 };
 

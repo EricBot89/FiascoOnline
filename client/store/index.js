@@ -5,7 +5,7 @@ import { gameList } from "./reducers/gameList";
 import { chat, updateLog, syncLog } from "./reducers/chat";
 import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { socket, sendChatMessage } from "./socket"
+import { socket, sendChatMessage, requestLog } from "./socket"
 
 const reducer = combineReducers({
   user,
@@ -28,5 +28,6 @@ export {
   leaveRoom,
   sendChatMessage,
   updateLog,
-  syncLog
+  syncLog,
+  requestLog
 };
