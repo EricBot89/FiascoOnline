@@ -31,8 +31,7 @@ const chat = (state = initState, action) => {
       return {chatLog: state.chatLog, locale: state.locale};
     case SYNC_LOG:
       const { chatLog } = action;
-      state.chatLog = chatLog;
-      return state;
+      return {chatLog, locale: state.locale};
     default:
       return state;
   }
