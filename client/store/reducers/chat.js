@@ -20,8 +20,7 @@ const chat = (state = initState, action) => {
   switch (action.type) {
     case JOIN_ROOM:
       const { room } = action;
-      state.locale = room;
-      return state;
+      return {chatLog: [], locale: room};
     case LEAVE_ROOM:
       state.locale = "Global";
       return state;

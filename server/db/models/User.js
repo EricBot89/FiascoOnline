@@ -53,9 +53,9 @@ const encryptCredentials = user => {
 User.beforeCreate(encryptCredentials);
 User.beforeUpdate(encryptCredentials);
 User.beforeBulkCreate(userList => {
-  userList.forEach( user => {
+  userList.forEach(user => {
     encryptCredentials(user);
   });
 });
 
-module.exports = User
+module.exports = User;

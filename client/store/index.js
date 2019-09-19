@@ -1,11 +1,24 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user, loginThunk, logout } from "./reducers/user";
-import { game, joinRoom, leaveRoom } from "./reducers/game";
+import { game } from "./reducers/game";
 import { gameList } from "./reducers/gameList";
 import { chat, updateLog, syncLog } from "./reducers/chat";
 import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { socket, sendChatMessage, requestLog } from "./socket"
+import { socket, sendChatMessage, requestLog, join, leave } from "./socket";
+
+const JOIN_ROOM = "JOIN ROOM";
+const LEAVE_ROOM = "LEAVE_ROOM";
+
+const joinRoom = room => {
+  join(room);
+  return { type: JOIN_ROOM, room };
+};
+
+const leaveRoom = () => {
+  leave();
+  return { type: LEAVE_ROOM };
+};
 
 const reducer = combineReducers({
   user,
