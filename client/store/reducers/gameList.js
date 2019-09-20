@@ -51,13 +51,9 @@ const initState = {
 
 let UPDATE = "UPDATE";
 
-const syncRoomsThunk = () => {
-  
-}
+const syncRoomsThunk = () => {};
 
-const createNewRoom = (roomDat) => {
-  
-}
+const createNewRoom = roomDat => {};
 
 const gameList = (state = initState, action) => {
   switch (action.type) {

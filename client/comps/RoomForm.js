@@ -1,5 +1,5 @@
 import React from "react";
-import "./RoomForm.css"
+import "./RoomForm.css";
 
 class RoomForm extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class RoomForm extends React.Component {
     return (
       <div className="room-form">
         <form>
-            <h2>Create a new game</h2>
+          <h2>Create a new game</h2>
           <input />
           <button>Cancel</button>
           <button>Create</button>

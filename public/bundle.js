@@ -4242,7 +4242,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".login-container{\\n    display: flex;\\n    justify-content: center;\\n    margin-top: 56px;\\n  }\\n  \\n  .login-form{\\n    width: 30%;\\n    display: flex;\\n    flex-flow: column;\\n    align-items: center;\\n  }\", \"\"]);\n\n\n//# sourceURL=webpack:///./client/comps/Login.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".login-container {\\n  display: flex;\\n  justify-content: center;\\n  margin-top: 56px;\\n}\\n\\n.login-form {\\n  width: 30%;\\n  display: flex;\\n  flex-flow: column;\\n  align-items: center;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./client/comps/Login.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -4253,7 +4253,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".room-form{\\n    z-index: 10;\\n    position: fixed;\\n    background: darkgray;\\n    position: fixed;\\n    padding: 20px\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./client/comps/RoomForm.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".room-form {\\n  z-index: 10;\\n  position: fixed;\\n  background: darkgray;\\n  position: fixed;\\n  padding: 20px;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./client/comps/RoomForm.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
