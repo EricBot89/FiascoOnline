@@ -49,7 +49,11 @@ const initState = {
   openGames: []
 };
 
-let UPDATE = "UPDATE";
+let ADD_GAME = "ADD_GAME";
+
+const addGame = (game) => {
+  return {type: ADD_GAME, game}
+}
 
 const syncRoomsThunk = () => {};
 
@@ -57,7 +61,8 @@ const createNewRoom = roomDat => {};
 
 const gameList = (state = initState, action) => {
   switch (action.type) {
-    case UPDATE:
+    case ADD_GAME:
+      
       return action.openGames;
     default:
       break;
@@ -65,4 +70,4 @@ const gameList = (state = initState, action) => {
   return state;
 };
 
-export { gameList };
+export { gameList, addGame };
