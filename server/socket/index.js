@@ -47,6 +47,11 @@ module.exports = io => {
       io.sockets.in(locale).emit("newChatMessage", mssgString);
     });
 
+    socket.on("createRoom", room =>{
+      //add the new game to the db
+      socket.emit.broadcast("roomCreated", room)
+    })
+
     socket.on("disconnect", () => {
       console.log(`bye ${socket.id}`);
     });
