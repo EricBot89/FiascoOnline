@@ -51,9 +51,9 @@ const initState = {
 
 let ADD_GAME = "ADD_GAME";
 
-const addGame = (game) => {
-  return {type: ADD_GAME, game}
-}
+const addGame = game => {
+  return { type: ADD_GAME, game };
+};
 
 const syncRoomsThunk = () => {};
 
@@ -62,7 +62,6 @@ const createNewRoom = roomDat => {};
 const gameList = (state = initState, action) => {
   switch (action.type) {
     case ADD_GAME:
-      
       return action.openGames;
     default:
       break;
