@@ -1,50 +1,3 @@
-/*const dummyRooms = [
-  {
-    id: "room1",
-    name: "newbie friendly!!"
-  },
-  {
-    id: "room2",
-    name: "Alpha Complex Playset"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  },
-  {
-    id: "room3",
-    name: "private game to which you have an invite"
-  }
-];
-*/
 const initState = {
   openGames: []
 };
@@ -57,7 +10,12 @@ const addGame = game => {
 
 const syncRoomsThunk = () => {};
 
-const createNewRoom = roomDat => {};
+const createNewRoomThunk = room => {
+  return dispatch => {
+    //emit create from socket
+    dispatch(addGame(room));
+  };
+};
 
 const gameList = (state = initState, action) => {
   switch (action.type) {
@@ -69,4 +27,4 @@ const gameList = (state = initState, action) => {
   return state;
 };
 
-export { gameList, addGame };
+export { gameList, createNewRoomThunk, syncRoomsThunk, addGame };

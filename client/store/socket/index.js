@@ -9,13 +9,17 @@ socket.on("connect", () => {
 });
 
 socket.on("logSync", log => {
-  console.log(log)
+  console.log(log);
   const parsedlog = JSON.parse(log);
   store.dispatch(syncLog(parsedlog));
 });
 
 socket.on("newChatMessage", mssgString => {
   store.dispatch(updateLog(mssgString));
+});
+
+socket.on("roomCreated", room => {
+  store.dispatch(addGame(room));
 });
 
 const sendChatMessage = (user, mssg, locale) => {
@@ -32,6 +36,10 @@ const join = room => {
 
 const leave = () => {
   socket.emit("leave");
+};
+
+const createRoom = room => {
+  socket.emit("createRoom", room);
 };
 
 export { socket, sendChatMessage, requestLog, join, leave };

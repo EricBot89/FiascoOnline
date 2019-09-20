@@ -24,8 +24,8 @@ class DCRooms extends React.Component {
     const { showForm } = this.state;
     return (
       <div className="rooms-container">
-        {showForm ? <RoomForm /> : ""}
         <div className="rooms-tools">
+          {showForm ? <RoomForm /> : ""}
           <button onClick={() => this.setState({ showForm: true })}>
             Create Game
           </button>

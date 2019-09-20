@@ -11,8 +11,10 @@ class RoomForm extends React.Component {
         <form>
           <h2>Create a new game</h2>
           <input />
-          <button>Cancel</button>
-          <button>Create</button>
+          <div className="room-form-buttons">
+            <button>Cancel</button>
+            <button>Create</button>
+          </div>
         </form>
       </div>
     );
