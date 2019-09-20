@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginThunk } from "../store";
-import "./Login.css"
+import "./Login.css";
 
 class DCLogin extends React.Component {
   constructor(props) {
@@ -31,16 +31,20 @@ class DCLogin extends React.Component {
   }
 
   render() {
-    const {chatLog} = this.props
+    const { chatLog } = this.props;
     return (
       <div className="login-container">
-      <form onSubmit={this.onSubmit} className="login-form">
-        <label htmlFor="userName">User Name</label>
-        <input type="text" name="userName" onChange={this.formController} />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" onChange={this.formController} />
-        <button type="submit">Sign in</button>
-      </form>
+        <form onSubmit={this.onSubmit} className="login-form">
+          <label htmlFor="userName">User Name</label>
+          <input type="text" name="userName" onChange={this.formController} />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            onChange={this.formController}
+          />
+          <button type="submit">Sign in</button>
+        </form>
       </div>
     );
   }

@@ -20,17 +20,17 @@ const chat = (state = initState, action) => {
   switch (action.type) {
     case JOIN_ROOM:
       const { room } = action;
-      return {chatLog: [], locale: room};
+      return { chatLog: state.chatLog, locale: room };
     case LEAVE_ROOM:
       state.locale = "Global";
-      return state;
+      return { chatLog: state.chatLog, locale: state.locale };
     case UPDATE_LOG:
       const { mssgString } = action;
       state.chatLog.push(mssgString);
-      return {chatLog: state.chatLog, locale: state.locale};
+      return { chatLog: state.chatLog, locale: state.locale };
     case SYNC_LOG:
       const { chatLog } = action;
-      return {chatLog, locale: state.locale};
+      return { chatLog, locale: state.locale };
     default:
       return state;
   }

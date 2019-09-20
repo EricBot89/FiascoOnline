@@ -1,18 +1,16 @@
 class chatCache {
-    
-    log = []
+  log = [];
 
-    addChat(chat){
-        this.log.push(chat)
-        if(chat.length > 100){
-            this.log.shift()
-        }
+  addChat(chat) {
+    this.log.push(chat);
+    if (chat.length > 100) {
+      this.log.shift();
     }
+  }
 
-    JSONFromChat(){
-        return JSON.stringify(this.log)
-    }
-
+  JSONFromChat() {
+    return JSON.stringify(this.log);
+  }
 }
 
-module.exports = chatCache
+module.exports = chatCache;

@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { Chat } from "./Chat";
 import { joinRoom, leaveRoom } from "../store";
 import "./Rooms.css";
+import { leave } from "../store/socket";
 
 const DCRooms = props => {
-  const { rooms, join, reset } = props;
-  reset();
+  const { rooms, join, leave } = props;
+  join("Global");
   return (
     <div className="rooms-container">
       <div className="rooms-tools">
@@ -19,7 +20,13 @@ const DCRooms = props => {
       <div className="room-list">
         {rooms.map((room, idx) => (
           <div className="room-card" key={idx}>
-            <Link to={`/game/${room.id}`} onClick={() => join(`${room.name}`)}>
+            <Link
+              to={`/game/${room.id}`}
+              onClick={() => {
+                leave("Global");
+                join(`${room.name}`);
+              }}
+            >
               {room.name}
             </Link>
           </div>
@@ -37,8 +44,8 @@ const mapDispatch = dispatch => ({
   join(room) {
     dispatch(joinRoom(room));
   },
-  reset() {
-    dispatch(leaveRoom());
+  leave(room) {
+    dispatch(leaveRoom(room));
   }
 });
 

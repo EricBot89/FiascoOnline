@@ -7,7 +7,7 @@ import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { socket, sendChatMessage, requestLog, join, leave } from "./socket";
 
-const JOIN_ROOM = "JOIN ROOM";
+const JOIN_ROOM = "JOIN_ROOM";
 const LEAVE_ROOM = "LEAVE_ROOM";
 
 const joinRoom = room => {
@@ -15,8 +15,8 @@ const joinRoom = room => {
   return { type: JOIN_ROOM, room };
 };
 
-const leaveRoom = () => {
-  leave();
+const leaveRoom = (room) => {
+  leave(room);
   return { type: LEAVE_ROOM };
 };
 

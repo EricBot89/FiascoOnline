@@ -8,13 +8,9 @@ socket.on("connect", () => {
   console.log("server socket connection established");
 });
 
-socket.on("test", str => {
-  console.log(`The server sent a test with string ${str}`);
-});
-
 socket.on("logSync", log => {
+  console.log(log)
   const parsedlog = JSON.parse(log);
-  console.log(parsedlog);
   store.dispatch(syncLog(parsedlog));
 });
 

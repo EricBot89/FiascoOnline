@@ -10,23 +10,19 @@ module.exports = io => {
   io.on("connection", socket => {
     console.log(`say hello to ${socket.id}`);
 
-    socket.join("Global");
-
     socket.on("join", locale => {
-      socket.leave("Global");
+      console.log("joining ", locale)
       socket.join(locale);
     });
 
-    socket.on("leave", () => {
-      let rooms = socket.rooms;
-      for (let room in rooms) {
-        if (room != socket.id) socket.leave(room);
-      }
-      socket.join("Global");
+    socket.on("leave", (locale) => {
+      console.log("leaving ", locale)
+      socket.join(locale);
     });
 
     socket.on("syncLog", locale => {
       if (cachedChats[locale]) {
+        console.log(locale)
         io.to(`${socket.id}`).emit(
           "logSync",
           cachedChats[locale].JSONFromChat()
@@ -35,7 +31,7 @@ module.exports = io => {
         cachedChats[locale] = new chatCache();
         io.to(`${socket.id}`).emit(
           "logSync",
-          "['A helpful message for an empty chat']"
+          JSON.stringify(['A helpful message for an empty chat'])
         );
       }
     });
@@ -44,7 +40,8 @@ module.exports = io => {
       const currentTime = new Date();
       const mssgString = `[${user}: ${currentTime.getHours()}:${currentTime.getMinutes()}] ${mssg}`;
       cachedChats[locale].addChat(mssgString);
-      if (locale != "Global") {
+      console.log(locale)
+      if (locale !== "Global") {
         //save this to the db
       }
       io.sockets.in(locale).emit("newChatMessage", mssgString);
