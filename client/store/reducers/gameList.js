@@ -1,4 +1,4 @@
-const dummyRooms = [
+/*const dummyRooms = [
   {
     id: "room1",
     name: "newbie friendly!!"
@@ -44,12 +44,20 @@ const dummyRooms = [
     name: "private game to which you have an invite"
   }
 ];
-
+*/
 const initState = {
-  openGames: dummyRooms
+  openGames: []
 };
 
 let UPDATE = "UPDATE";
+
+const syncRoomsThunk = () => {
+  
+}
+
+const createNewRoom = (roomDat) => {
+  
+}
 
 const gameList = (state = initState, action) => {
   switch (action.type) {

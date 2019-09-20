@@ -1,0 +1,7 @@
+.room-form{
+    z-index: 10;
+    position: fixed;
+    background: darkgray;
+    position: fixed;
+    padding: 20px
+}
