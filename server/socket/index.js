@@ -1,15 +1,15 @@
 const { ChacheLib } = require("./chatCache");
-const { User, Game, Chat} = require("../db/models")
+const { User, Game, Chat } = require("../db/models");
 
 const cachedChats = new ChacheLib();
 
-const  storeChat = async (mssg, locale) => {
-  try{
-    Chat.create({ messageText: mssg, locale})
-  } catch (err){
-    console.log(err)
+const storeChat = async (mssg, locale) => {
+  try {
+    Chat.create({ messageText: mssg, locale });
+  } catch (err) {
+    console.log(err);
   }
-}
+};
 
 module.exports = io => {
   io.on("connection", socket => {
@@ -37,7 +37,7 @@ module.exports = io => {
       cache.addChat(mssgString);
       if (locale !== "Global") {
         //save this to the db
-        storeChat(mssg, locale)
+        storeChat(mssg, locale);
       }
       io.sockets.in(locale).emit("newChatMessage", mssgString);
     });
