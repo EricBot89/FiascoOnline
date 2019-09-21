@@ -1,1 +1,7 @@
-const { User, Chat, Game } = require("./server/db/models");
+const { User } = require("./server/db/models");
+
+User.create({
+  userName: "anon",
+  email: "eloucks@gmail.com",
+  password: "password"
+});
