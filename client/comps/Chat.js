@@ -34,8 +34,8 @@ class DCChat extends React.Component {
   }
 
   componentWillUnmount() {
-    socket.off("logSync",this.updateChatLog);
-    socket.off("newChatMessage",this.updateChatLog);
+    socket.off("logSync", this.updateChatLog);
+    socket.off("newChatMessage", this.updateChatLog);
   }
 
   formControl(e) {
@@ -44,7 +44,7 @@ class DCChat extends React.Component {
   }
 
   onSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const { typing } = this.state;
     const { user, locale } = this.props;
     sendChatMessage(user || "anon", typing, locale);

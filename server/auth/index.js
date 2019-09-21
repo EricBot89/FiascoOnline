@@ -11,7 +11,7 @@ router.post("/signup", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
   try {
-    const { userName,password } = req.body;
+    const { userName, password } = req.body;
     const user = User.findOne({ where: { userName } });
     if (user) {
       user.validate(password)

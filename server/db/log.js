@@ -16,13 +16,13 @@ const log = async data => {
     }
     const logEntry = `
     <br> 
-    <h4> Logged ${new Date} </h4>
+    <h4> Logged ${new Date()} </h4>
     <br>
     <p>${data}</p>
     <br>
     <br>
     <hr>
-    `
+    `;
 
     fs.appendFile("./sequelizelog.html", logEntry, err => {
       if (err) throw err;
@@ -32,4 +32,4 @@ const log = async data => {
   }
 };
 
-module.exports = log
+module.exports = log;

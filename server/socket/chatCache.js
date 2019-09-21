@@ -1,8 +1,8 @@
 class chatCache {
   log = [];
 
-  addChat(chat) {
-    this.log.push(chat);
+  addChat(chatMssg) {
+    this.log.push(chatMssg);
     if (chat.length > 100) {
       this.log.shift();
     }
@@ -13,4 +13,18 @@ class chatCache {
   }
 }
 
-module.exports = chatCache;
+class chacheLib {
+  lib = {
+    Global: new chatCache()
+  };
+
+  set(chat) {
+    lib[chat] = new chatCache();
+  }
+
+  get(chat) {
+    return lib[chat];
+  }
+}
+
+module.exports = { chatCache, chacheLib };
