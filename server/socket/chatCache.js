@@ -1,4 +1,4 @@
-class chatCache {
+class ChatCache {
   log = [];
 
   addChat(chatMssg) {
@@ -13,13 +13,13 @@ class chatCache {
   }
 }
 
-class chacheLib {
+class ChacheLib {
   lib = {
-    Global: new chatCache()
+    Global: new ChatCache()
   };
 
   set(chat) {
-    lib[chat] = new chatCache();
+    lib[chat] = new ChatCache();
   }
 
   get(chat) {
@@ -27,4 +27,4 @@ class chacheLib {
   }
 }
 
-module.exports = { chatCache, chacheLib };
+module.exports = { ChatCache, ChacheLib };

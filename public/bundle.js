@@ -258,7 +258,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\n\nvar thunkMiddleware = function thunkMiddleware(_ref) {\n  var dispatch = _ref.dispatch,\n      getState = _ref.getState;\n\n  return function (next) {\n    return function (action) {\n      if (typeof action === \"function\") {\n        console.log(\"thunk in progress\");\n        return action(dispatch, getState);\n      }\n\n      return next(action);\n    };\n  };\n};\n\nvar loggingMiddleware = function loggingMiddleware(_ref2) {\n  var dispatch = _ref2.dispatch,\n      getState = _ref2.getState;\n\n  return function (next) {\n    return function (action) {\n      console.log(getState());\n      console.log(next(action));\n      console.log(getState());\n    };\n  };\n};\n\nexports.thunkMiddleware = thunkMiddleware;\nexports.loggingMiddleware = loggingMiddleware;\n\n//# sourceURL=webpack:///./client/store/middleware.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar thunkMiddleware = function thunkMiddleware(_ref) {\n  var dispatch = _ref.dispatch,\n      getState = _ref.getState;\n\n  return function (next) {\n    return function (action) {\n      if (typeof action === \"function\") {\n        console.log(\"thunk in progress\");\n        return action(dispatch, getState);\n      }\n\n      return next(action);\n    };\n  };\n};\n\nvar loggingMiddleware = function loggingMiddleware(_ref2) {\n  var dispatch = _ref2.dispatch,\n      getState = _ref2.getState;\n\n  return function (next) {\n    return function (action) {\n      console.log(getState());\n      console.log(next(action));\n      console.log(getState());\n    };\n  };\n};\n\nexports.thunkMiddleware = thunkMiddleware;\nexports.loggingMiddleware = loggingMiddleware;\n\n//# sourceURL=webpack:///./client/store/middleware.js?");
 
 /***/ }),
 
@@ -4990,7 +4990,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

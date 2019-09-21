@@ -15,7 +15,7 @@ const joinRoom = room => {
   return { type: JOIN_ROOM, room };
 };
 
-const leaveRoom = (room) => {
+const leaveRoom = room => {
   leave(room);
   return { type: LEAVE_ROOM };
 };

@@ -1,18 +1,16 @@
-const { chatCache, chacheLib } = require("./chatCache");
+const { ChacheLib } = require("./chatCache");
 
-const cachedChats = new chacheLib();
+const cachedChats = new ChacheLib();
 
 module.exports = io => {
   io.on("connection", socket => {
     console.log(`say hello to ${socket.id}`);
 
     socket.on("join", locale => {
-      console.log("joining ", locale);
       socket.join(locale);
     });
 
     socket.on("leave", locale => {
-      console.log("leaving ", locale);
       socket.join(locale);
     });
 
@@ -28,7 +26,6 @@ module.exports = io => {
       const mssgString = `[${user}: ${currentTime.getHours()}:${currentTime.getMinutes()}] ${mssg}`;
       const cache = cachedChats.get(locale);
       cache.addChat(mssgString);
-      console.log(locale);
       if (locale !== "Global") {
         //save this to the db
       }

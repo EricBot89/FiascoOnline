@@ -1,5 +1,3 @@
-
-
 const thunkMiddleware = ({ dispatch, getState }) => {
   return next => action => {
     if (typeof action === "function") {
