@@ -15,8 +15,8 @@ module.exports = io => {
     });
 
     socket.on("syncLog", locale => {
-      if (cachedChats[locale]) {
-        const cache = cachedChats.get(locale);
+      const cache = cachedChats.get(locale);
+      if (cache) {
         io.to(`${socket.id}`).emit("logSync", cache.JSONFromChat());
       }
     });
