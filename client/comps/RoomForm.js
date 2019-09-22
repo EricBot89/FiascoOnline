@@ -12,19 +12,19 @@ class RoomForm extends React.Component {
     this.formControl = this.formControl.bind(this);
   }
 
-  componentWillUnmount(){
-    socket.off("roomCreated", this.props.cancel)
+  componentWillUnmount() {
+    socket.off("roomCreated", this.props.cancel);
   }
 
   createRoom(e) {
     e.preventDefault();
     const { roomName } = this.state;
     createRoom(roomName);
-    socket.on("roomCreated", this.props.cancel)
+    socket.on("roomCreated", this.props.cancel);
   }
 
   formControl(e) {
-    this.setState({roomName: e.target.value})
+    this.setState({ roomName: e.target.value });
   }
 
   render() {
@@ -33,7 +33,11 @@ class RoomForm extends React.Component {
       <div className="room-form">
         <form>
           <h2>Create a new game</h2>
-          <input name="roomName" value={this.state.roomName} onChange={this.formControl} />
+          <input
+            name="roomName"
+            value={this.state.roomName}
+            onChange={this.formControl}
+          />
           <div className="room-form-buttons">
             <button onClick={cancel}>Cancel</button>
             <button onClick={this.createRoom}>Create</button>

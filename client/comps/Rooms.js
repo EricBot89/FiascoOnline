@@ -12,7 +12,7 @@ class DCRooms extends React.Component {
     this.state = {
       showForm: false
     };
-    this.closePopUp = this.closePopUp.bind(this)
+    this.closePopUp = this.closePopUp.bind(this);
   }
 
   componentDidMount() {
@@ -21,8 +21,8 @@ class DCRooms extends React.Component {
   }
 
   closePopUp(e) {
-    if(e.preventDefault) e.preventDefault()
-    this.setState({showForm:false})
+    if (e.preventDefault) e.preventDefault();
+    this.setState({ showForm: false });
   }
 
   render() {
@@ -40,22 +40,22 @@ class DCRooms extends React.Component {
           <Chat />
         </div>
         <div className="room-list">
-          {rooms.map((room, idx) =>{ 
-          console.log(room)
-          return(
-            <div className="room-card" key={idx}>
-              <Link
-                to={`/game/${room.id}`}
-                onClick={() => {
-                  leaveRoom("Global");
-                  join(`${room.roomName}`);
-                }}
-              >
-                {room.roomName}
-              </Link>
-            </div>
-          )}
-          )}
+          {rooms.map((room, idx) => {
+            console.log(room);
+            return (
+              <div className="room-card" key={idx}>
+                <Link
+                  to={`/game/${room.id}`}
+                  onClick={() => {
+                    leaveRoom("Global");
+                    join(`${room.roomName}`);
+                  }}
+                >
+                  {room.roomName}
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

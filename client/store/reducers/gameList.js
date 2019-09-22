@@ -1,27 +1,31 @@
+import axios from "axios";
+
 const initState = {
   openGames: []
 };
 
-let ADD_GAME = "ADD_GAME";
+const ADD_GAME = "ADD_GAME";
+const SYNC_ROOMS = "SYNC_ROOMS";
 
 const addGame = game => {
   return { type: ADD_GAME, game };
 };
 
-const syncRoomsThunk = () => {};
+const syncRooms = roomList => {
+  return { type: SYNC_ROOMS, roomList };
+};
 
-const createNewRoomThunk = room => {
-  return dispatch => {
-    //emit create from socket
-    dispatch(addGame(room));
-  };
+const syncRoomsThunk = () => {
+  return dispatch => {};
 };
 
 const gameList = (state = initState, action) => {
   switch (action.type) {
     case ADD_GAME:
-      state.openGames.push(action.game)
-      return {openGames: state.openGames}
+      state.openGames.push(action.game);
+      return { openGames: state.openGames };
+    case SYNC_ROOMS:
+      return { openGames: action.roomList };
     default:
       break;
   }
