@@ -3,9 +3,20 @@ const { User, Game, Chat } = require("../db/models");
 
 const cachedChats = new ChacheLib();
 
-const storeChat = async (mssg, locale) => {
+const storeChat = async (mssg, locale, userID = 0) => {
   try {
     Chat.create({ messageText: mssg, locale });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const storeRoom = async (room, userID = 0) => {
+  try {
+    const returnRoom = await Game.create({
+      roomName: room
+    });
+    return returnRoom;
   } catch (err) {
     console.log(err);
   }
@@ -42,10 +53,10 @@ module.exports = io => {
       io.sockets.in(locale).emit("newChatMessage", mssgString);
     });
 
-    socket.on("createRoom", (room, userID) => {
+    socket.on("createRoom", async (room, userID) => {
       cachedChats.set(room);
-      //add the new game to the db
-      socket.emit.broadcast("roomCreated", room);
+      const returnRoom = await storeRoom(room);
+      io.emit("roomCreated", returnRoom);
     });
 
     socket.on("disconnect", () => {

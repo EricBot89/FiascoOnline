@@ -20,7 +20,8 @@ const createNewRoomThunk = room => {
 const gameList = (state = initState, action) => {
   switch (action.type) {
     case ADD_GAME:
-      return action.openGames;
+      state.openGames.push(action.game)
+      return {openGames: state.openGames}
     default:
       break;
   }

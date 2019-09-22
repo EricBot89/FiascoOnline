@@ -1,11 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user, loginThunk, logout } from "./reducers/user";
 import { game } from "./reducers/game";
-import { gameList } from "./reducers/gameList";
+import { gameList, addGame } from "./reducers/gameList";
 import { chat, updateLog, syncLog } from "./reducers/chat";
 import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { socket, sendChatMessage, requestLog, join, leave } from "./socket";
+import {
+  socket,
+  sendChatMessage,
+  requestLog,
+  join,
+  leave,
+  createRoom
+} from "./socket";
 
 const JOIN_ROOM = "JOIN_ROOM";
 const LEAVE_ROOM = "LEAVE_ROOM";
@@ -42,5 +49,7 @@ export {
   sendChatMessage,
   updateLog,
   syncLog,
-  requestLog
+  requestLog,
+  createRoom,
+  addGame
 };

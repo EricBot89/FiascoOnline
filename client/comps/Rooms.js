@@ -12,11 +12,17 @@ class DCRooms extends React.Component {
     this.state = {
       showForm: false
     };
+    this.cancelNewGame = this.cancelNewGame.bind(this)
   }
 
   componentDidMount() {
     const { join } = this.props;
     join("Global");
+  }
+
+  cancelNewGame(e) {
+    e.preventDefault()
+    this.setState({showForm:false})
   }
 
   render() {
@@ -25,7 +31,7 @@ class DCRooms extends React.Component {
     return (
       <div className="rooms-container">
         <div className="rooms-tools">
-          {showForm ? <RoomForm /> : ""}
+          {showForm ? <RoomForm cancel={this.cancelNewGame} /> : ""}
           <button onClick={() => this.setState({ showForm: true })}>
             Create Game
           </button>
@@ -34,19 +40,22 @@ class DCRooms extends React.Component {
           <Chat />
         </div>
         <div className="room-list">
-          {rooms.map((room, idx) => (
+          {rooms.map((room, idx) =>{ 
+          console.log(room)
+          return(
             <div className="room-card" key={idx}>
               <Link
                 to={`/game/${room.id}`}
                 onClick={() => {
                   leaveRoom("Global");
-                  join(`${room.name}`);
+                  join(`${room.roomName}`);
                 }}
               >
-                {room.name}
+                {room.roomName}
               </Link>
             </div>
-          ))}
+          )}
+          )}
         </div>
       </div>
     );

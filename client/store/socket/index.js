@@ -38,8 +38,8 @@ const leave = () => {
   socket.emit("leave");
 };
 
-const createRoom = room => {
-  socket.emit("createRoom", room);
+const createRoom = (room, userID) => {
+  socket.emit("createRoom", room, userID);
 };
 
-export { socket, sendChatMessage, requestLog, join, leave };
+export { socket, sendChatMessage, requestLog, join, leave, createRoom };
