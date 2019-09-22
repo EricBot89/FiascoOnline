@@ -32,4 +32,4 @@ const gameList = (state = initState, action) => {
   return state;
 };
 
-export { gameList, createNewRoomThunk, syncRoomsThunk, addGame };
+export { gameList, syncRoomsThunk, addGame };

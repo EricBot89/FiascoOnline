@@ -39,8 +39,10 @@ class RoomForm extends React.Component {
             onChange={this.formControl}
           />
           <div className="room-form-buttons">
+            <button onClick={this.createRoom} type="submit">
+              Create
+            </button>
             <button onClick={cancel}>Cancel</button>
-            <button onClick={this.createRoom}>Create</button>
           </div>
         </form>
       </div>
