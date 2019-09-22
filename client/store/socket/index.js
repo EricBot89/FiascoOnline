@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import { store, updateLog, syncLog } from "../../store";
+import { store, updateLog, syncLog, addGame } from "../../store";
 const socket = io(window.location.origin);
 
 socket.connect();
