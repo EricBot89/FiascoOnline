@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { user, loginThunk, logout } from "./reducers/user";
 import { game } from "./reducers/game";
-import { gameList, addGame } from "./reducers/gameList";
+import { gameList, addGame, syncRoomsThunk } from "./reducers/gameList";
 import { chat, updateLog, syncLog } from "./reducers/chat";
 import { thunkMiddleware, loggingMiddleware } from "./middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -51,5 +51,6 @@ export {
   syncLog,
   requestLog,
   createRoom,
-  addGame
+  addGame,
+  syncRoomsThunk
 };

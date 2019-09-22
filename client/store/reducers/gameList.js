@@ -16,7 +16,15 @@ const syncRooms = roomList => {
 };
 
 const syncRoomsThunk = () => {
-  return dispatch => {};
+  return async dispatch => {
+    try {
+      const roomList = await axios.get("/api/games");
+      console.log(roomList.data)
+      dispatch(syncRooms(roomList.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 };
 
 const gameList = (state = initState, action) => {

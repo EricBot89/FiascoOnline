@@ -24,7 +24,7 @@ server.use((error, req, res, next) => {
 });
 
 const dbInit = () => {
-  db.sync();
+  db.sync({force: true});
 };
 
 const serverInstance = server.listen(PORT, () => {
