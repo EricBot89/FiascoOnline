@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoom } from "../store";
+import { createRoom, socket } from "../store";
 import "./RoomForm.css";
 
 class RoomForm extends React.Component {
@@ -12,11 +12,15 @@ class RoomForm extends React.Component {
     this.formControl = this.formControl.bind(this);
   }
 
+  componentWillUnmount(){
+    socket.off("roomCreated", this.props.cancel)
+  }
+
   createRoom(e) {
     e.preventDefault();
     const { roomName } = this.state;
     createRoom(roomName);
-    this.props.cancel(e);
+    socket.on("roomCreated", this.props.cancel)
   }
 
   formControl(e) {

@@ -12,7 +12,7 @@ class DCRooms extends React.Component {
     this.state = {
       showForm: false
     };
-    this.cancelNewGame = this.cancelNewGame.bind(this)
+    this.closePopUp = this.closePopUp.bind(this)
   }
 
   componentDidMount() {
@@ -20,8 +20,8 @@ class DCRooms extends React.Component {
     join("Global");
   }
 
-  cancelNewGame(e) {
-    e.preventDefault()
+  closePopUp(e) {
+    if(e.preventDefault) e.preventDefault()
     this.setState({showForm:false})
   }
 
@@ -31,7 +31,7 @@ class DCRooms extends React.Component {
     return (
       <div className="rooms-container">
         <div className="rooms-tools">
-          {showForm ? <RoomForm cancel={this.cancelNewGame} /> : ""}
+          {showForm ? <RoomForm cancel={this.closePopUp} /> : ""}
           <button onClick={() => this.setState({ showForm: true })}>
             Create Game
           </button>
