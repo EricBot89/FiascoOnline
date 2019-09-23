@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Chat } from "./Chat";
 import { RoomForm } from "./RoomForm";
-import { joinRoom, leaveRoom, syncRoomsThunk } from "../store";
+import { joinRoom, leaveRoom, syncRoomsThunk , socket} from "../store";
 import "./Rooms.css";
 
 class DCRooms extends React.Component {
@@ -19,6 +19,12 @@ class DCRooms extends React.Component {
     const { join, syncList } = this.props;
     join("Global");
     syncList()
+    socket.on("roomCreated", syncList)
+  }
+
+  componentWillUnmount(){
+    const { syncList } = this.props;
+    socket.off("roomCreated", syncList)
   }
 
   closePopUp(e) {

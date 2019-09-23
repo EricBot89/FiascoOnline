@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sendChatMessage, requestLog, socket } from "../store";
+import { sendChatMessage, requestLog, socket, leaveRoom } from "../store";
 import "./Chat.css";
 
 class DCChat extends React.Component {
@@ -34,6 +34,8 @@ class DCChat extends React.Component {
   }
 
   componentWillUnmount() {
+    const { locale, leaveRoom } = this.props;
+    leaveRoom(locale)
     socket.off("logSync", this.updateChatLog);
     socket.off("newChatMessage", this.updateChatLog);
   }
@@ -72,9 +74,15 @@ const mapState = state => {
   };
 };
 
+const mapDispatch = dispatch => ({
+  leaveRoom(room) {
+    dispatch(leaveRoom(room));
+  }
+});
+
 const Chat = connect(
   mapState,
-  null
+  mapDispatch
 )(DCChat);
 
 export { Chat };

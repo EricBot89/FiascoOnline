@@ -19,7 +19,7 @@ const syncRoomsThunk = () => {
   return async dispatch => {
     try {
       const roomList = await axios.get("/api/games");
-      console.log(roomList.data)
+      console.log(roomList.data);
       dispatch(syncRooms(roomList.data));
     } catch (err) {
       console.log(err);
