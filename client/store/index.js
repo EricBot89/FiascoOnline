@@ -24,10 +24,10 @@ const joinRoom = room => {
 
 const leaveRoom = room => {
   leave(room);
-  if(room != "Global"){
-  return { type: LEAVE_ROOM };
+  if (room != "Global") {
+    return { type: LEAVE_ROOM };
   }
-  return {type: null}
+  return { type: null };
 };
 
 const reducer = combineReducers({

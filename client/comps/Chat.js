@@ -23,7 +23,6 @@ class DCChat extends React.Component {
   async componentDidMount() {
     const { locale } = this.props;
     requestLog(locale);
-    console.log(locale)
     socket.on("logSync", this.updateChatLog);
     socket.on("newChatMessage", this.updateChatLog);
   }
