@@ -15,12 +15,9 @@ const leaveRoom = room => {
 const game = (state = initState, action) => {
   switch (action.type) {
     case JOIN_ROOM:
-      const { room } = action;
-      state.room = room;
-      return state;
+      return { room: action.room };
     case LEAVE_ROOM:
-      state.room = null;
-      return state;
+      return { room: null };
     default:
       return state;
   }

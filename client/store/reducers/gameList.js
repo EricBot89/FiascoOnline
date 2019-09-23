@@ -35,9 +35,8 @@ const gameList = (state = initState, action) => {
     case SYNC_ROOMS:
       return { openGames: action.roomList };
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export { gameList, syncRoomsThunk, addGame };
