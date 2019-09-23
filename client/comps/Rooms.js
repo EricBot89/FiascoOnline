@@ -33,7 +33,7 @@ class DCRooms extends React.Component {
   }
 
   render() {
-    const { rooms, join, leaveRoom } = this.props;
+    const { rooms, join, leaveRoom, syncList } = this.props;
     const { showForm } = this.state;
     return (
       <div className="rooms-container">
@@ -43,7 +43,7 @@ class DCRooms extends React.Component {
             Create Game
           </button>
           <button>Join Game With Code</button>
-          <button>Refresh Game List</button>
+          <button onClick={syncList}>Refresh Game List</button>
           <Chat />
         </div>
         <div className="room-list">

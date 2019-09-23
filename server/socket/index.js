@@ -36,18 +36,16 @@ module.exports = io => {
 
     socket.on("syncLog", locale => {
       const cache = cachedChats.get(locale);
-      if (cache) {
-        io.to(`${socket.id}`).emit("logSync", cache.JSONFromChat());
-      }
+      io.to(`${socket.id}`).emit("logSync", cache.JSONFromChat());
     });
 
     socket.on("chatMessage", (user, mssg, locale, userID) => {
       const currentTime = new Date();
       const mssgString = `[${user}: ${currentTime.getHours()}:${currentTime.getMinutes()}] ${mssg}`;
       const cache = cachedChats.get(locale);
+      cache.addChat(mssgString)
       cache.addChat(mssgString);
       if (locale !== "Global") {
-        //save this to the db
         storeChat(mssg, locale);
       }
       io.sockets.in(locale).emit("newChatMessage", mssgString);

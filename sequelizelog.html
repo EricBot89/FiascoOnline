@@ -28511,3 +28511,1107 @@
     <br>
     <hr>
     
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:57:37 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:14 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:14 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:14 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:14 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:15 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:34 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:35 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:40 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): INSERT INTO "games" ("id","roomName","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3) RETURNING *;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:40 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:58:40 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:49 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 10:59:59 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:01 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:12 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): INSERT INTO "games" ("id","roomName","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3) RETURNING *;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:12 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:42 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:00:45 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:07 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:08 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:08 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:08 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:08 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:10 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:16 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:19 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:21 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): INSERT INTO "games" ("id","roomName","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3) RETURNING *;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:21 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:21 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:24 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT "id", "roomName", "createdAt", "updatedAt", "userId" FROM "games" AS "game";</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:35 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:35 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:35 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "users" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "userName" VARCHAR(255) NOT NULL, "password" VARCHAR(255) NOT NULL, "salt" VARCHAR(255), "email" VARCHAR(255) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "games" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "games" ("id"   SERIAL , "roomName" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'games' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): DROP TABLE IF EXISTS "chats" CASCADE;</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): CREATE TABLE IF NOT EXISTS "chats" ("id"   SERIAL , "messageText" VARCHAR(255), "locale" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, "gameId" INTEGER REFERENCES "games" ("id") ON DELETE SET NULL ON UPDATE CASCADE, "userId" INTEGER REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY ("id"));</p>
+    <br>
+    <br>
+    <hr>
+    
+    <br> 
+    <h4> Logged Mon Sep 23 2019 11:01:36 GMT-0400 (Eastern Daylight Time) </h4>
+    <br>
+    <p>Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'chats' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;</p>
+    <br>
+    <br>
+    <hr>
+    
