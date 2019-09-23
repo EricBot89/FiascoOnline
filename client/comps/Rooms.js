@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Chat } from "./Chat";
 import { RoomForm } from "./RoomForm";
-import { joinRoom, leaveRoom, syncRoomsThunk , socket} from "../store";
+import { joinRoom, leaveRoom, syncRoomsThunk, socket } from "../store";
 import "./Rooms.css";
 
 class DCRooms extends React.Component {
@@ -18,13 +18,13 @@ class DCRooms extends React.Component {
   componentDidMount() {
     const { join, syncList } = this.props;
     join("Global");
-    syncList()
-    socket.on("roomCreated", syncList)
+    syncList();
+    socket.on("roomCreated", syncList);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     const { syncList } = this.props;
-    socket.off("roomCreated", syncList)
+    socket.off("roomCreated", syncList);
   }
 
   closePopUp(e) {
@@ -80,8 +80,8 @@ const mapDispatch = dispatch => ({
   leaveRoom(room) {
     dispatch(leaveRoom(room));
   },
-  syncList(){
-    dispatch(syncRoomsThunk())
+  syncList() {
+    dispatch(syncRoomsThunk());
   }
 });
 
