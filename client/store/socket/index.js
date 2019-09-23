@@ -9,7 +9,6 @@ socket.on("connect", () => {
 });
 
 socket.on("logSync", log => {
-  console.log(log);
   const parsedlog = JSON.parse(log);
   store.dispatch(syncLog(parsedlog));
 });

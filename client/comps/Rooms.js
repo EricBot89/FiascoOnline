@@ -54,8 +54,7 @@ class DCRooms extends React.Component {
                 <Link
                   to={`/game/${room.id}`}
                   onClick={() => {
-                    console.log("hi")
-                    leaveRoom("Global");
+                    console.log("hi");
                     join(`${room.roomName}`);
                   }}
                 >
