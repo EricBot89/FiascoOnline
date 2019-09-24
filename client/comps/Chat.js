@@ -34,8 +34,6 @@ class DCChat extends React.Component {
   }
 
   componentWillUnmount() {
-    const { locale, leaveRoom } = this.props;
-    leaveRoom(locale)
     socket.off("logSync", this.updateChatLog);
     socket.off("newChatMessage", this.updateChatLog);
   }
@@ -74,15 +72,9 @@ const mapState = state => {
   };
 };
 
-const mapDispatch = dispatch => ({
-  leaveRoom(room) {
-    dispatch(leaveRoom(room));
-  }
-});
-
 const Chat = connect(
   mapState,
-  mapDispatch
+  null
 )(DCChat);
 
 export { Chat };
