@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Chat } from "./Chat";
 import { leaveRoom } from "../store";
+import "./game.css"
 
 class DCGame extends React.Component {
   componentWillUnmount() {
@@ -11,7 +12,7 @@ class DCGame extends React.Component {
   render() {
     return (
       <div className="game-window">
-        <h1>welcome to the game</h1>
+        <h1> {this.props.game.name}</h1>
         <Chat />
       </div>
     );
@@ -20,7 +21,8 @@ class DCGame extends React.Component {
 
 const mapState = state => {
   return {
-    locale: state.chat.locale
+    locale: state.chat.locale,
+    game:  state.game.room
   };
 };
 
