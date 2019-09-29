@@ -8,6 +8,8 @@ const PORT = 1337;
 
 const server = express();
 
+const cubeCaller = require("./connectyCube")
+
 server.use(express.static(path.join(__dirname, "../public")));
 server.use(volleyball);
 
