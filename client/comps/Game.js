@@ -13,6 +13,7 @@ class DCGame extends React.Component {
     return (
       <div className="game-window">
         <h1> {this.props.game.name}</h1>
+        <div className='game-widgets'></div>
         <Chat />
       </div>
     );

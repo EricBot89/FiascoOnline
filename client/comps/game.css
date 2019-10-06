@@ -1,8 +1,17 @@
 .game-window {
   display: flex;
- align-items: center;
- justify-content: center;
- width:100%;
- margin-top: 56px;
- padding-top: 10px;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  margin-top: 56px;
+  padding-top: 10px;
+  width: 80vw;
+  height: 80vh;
+}
+
+.game-widgets {
+  width: 80vw;
+  height: 60vh;
+  background: darkgray;
+  border: 1px solid black;
 }

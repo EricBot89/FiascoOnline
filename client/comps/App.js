@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Home, Rooms, Game } from "../comps";
 import { Login } from "./Login";
 import { connect } from "react-redux";
+import "./App.css";
 
 const App = props => (
   <div className="app">
